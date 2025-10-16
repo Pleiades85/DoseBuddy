@@ -1,0 +1,73 @@
+# ----------------------------------------------------------------
+# Node & JavaScript
+# ----------------------------------------------------------------
+node_modules/
+/package-lock.json
+/yarn.lock
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.eslintcache
+
+# Build/Dist
+/dist/
+/build/
+
+# Expo / Managed workflow build files (optional)
+.expo/
+web-build/
+
+# ----------------------------------------------------------------
+# Android
+# ----------------------------------------------------------------
+# Gradle build directories
+android/build/
+android/app/build/
+android/app/src/main/assets/
+**/build/
+
+# Local configuration files
+android/local.properties
+.idea/
+.gradle/
+*.iml
+
+# Keystores (DO NOT commit these if they contain production keys!)
+*.keystore
+android/app/debug.keystore
+
+# ----------------------------------------------------------------
+# iOS
+# ----------------------------------------------------------------
+# Xcode build artifacts and user data
+ios/build/
+ios/DerivedData/
+ios/xcuserdata/
+*.ipa
+*.xcarchive
+
+# CocoaPods dependencies
+/ios/Pods/
+
+# User-specific project settings
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# ----------------------------------------------------------------
+# Environment & System Files
+# ----------------------------------------------------------------
+# Environment variables and secrets (NEVER commit these)
+.env
+.env.*
+*.config.js
+
+# macOS-specific files
+.DS_Store
+
+# VSCode settings (Optional - remove if you want to share specific settings)
+.vscode/
