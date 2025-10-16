@@ -1,0 +1,44 @@
+/*Welcome.css test*/
+/*This connects to Welcome.jss*/
+p {
+    color: red;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.welcome-image{
+    width: 50%;
+    height: auto;
+}
+.welcome-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.auth-button {
+    background-color: 4a90e2;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #357ABD;
+}
+
+
