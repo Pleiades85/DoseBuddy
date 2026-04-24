@@ -1,0 +1,62 @@
+/* =====================
+   Badge Component Styles 
+   ===================== */
+
+.db-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* --- Sizes --- */
+.db-badge--sm {
+  font-size: 10px;
+  padding: 2px var(--space-2);
+}
+.db-badge--md {
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-3);
+}
+.db-badge--lg {
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-4);
+}
+
+/* --- Variants --- */
+.db-badge--default {
+  background: var(--slate-100);
+  color: var(--text-secondary);
+}
+.db-badge--primary {
+  background: var(--primary-light);
+  color: var(--primary-700);
+}
+.db-badge--success {
+  background: var(--success-light);
+  color: var(--success-dark);
+}
+.db-badge--warning {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+}
+.db-badge--danger {
+  background: var(--danger-light);
+  color: var(--danger-dark);
+}
+.db-badge--info {
+  background: var(--info-light);
+  color: #1d4ed8;
+}
+
+/* --- Dot indicator --- */
+.db-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}

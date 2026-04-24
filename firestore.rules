@@ -1,0 +1,71 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- Helper Functions ----
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return request.auth.uid == uid;
+    }
+
+    // ---- Pharmacy Documents ----
+    // Only the pharmacy itself can read/write its own document
+    match /pharmacies/{pharmacyId} {
+      allow read, write: if isAuthenticated() && isOwner(pharmacyId);
+
+      // Pharmacy sub-collections (inventory, notifications)
+      match /inventory/{itemId} {
+        allow read, write: if isAuthenticated() && isOwner(pharmacyId);
+      }
+      match /notifications/{notifId} {
+        allow read, write: if isAuthenticated() && isOwner(pharmacyId);
+      }
+    }
+
+    // ---- Patient Documents ----
+    // Patients can only be accessed by authorized pharmacies
+    match /patients/{patientId} {
+      // Allow read/write if the pharmacy is in the authorizedPharmacies subcollection
+      // Note: This rule requires a direct subcollection check using exists()
+      allow read: if isAuthenticated() &&
+        exists(/databases/$(database)/documents/patients/$(patientId)/authorizedPharmacies/$(request.auth.uid));
+
+      // Only allow writes from authorized pharmacies
+      allow create: if isAuthenticated(); // Any authenticated pharmacy can create
+      allow update, delete: if isAuthenticated() &&
+        exists(/databases/$(database)/documents/patients/$(patientId)/authorizedPharmacies/$(request.auth.uid));
+
+      // Sub-collections: medications, reminders, prescriptions, logs, accessCodes, authorizedPharmacies
+      match /{subcollection}/{docId} {
+        allow read: if isAuthenticated() &&
+          exists(/databases/$(database)/documents/patients/$(patientId)/authorizedPharmacies/$(request.auth.uid));
+        allow write: if isAuthenticated() &&
+          exists(/databases/$(database)/documents/patients/$(patientId)/authorizedPharmacies/$(request.auth.uid));
+      }
+    }
+
+    // ---- Prescription Images ----
+    // Only authenticated users can access prescription images
+    match /prescription_images/{imageId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update, delete: if false; // Immutable once created
+    }
+
+    // ---- Share Requests ----
+    match /shareRequests/{requestId} {
+      // Allow authenticated users to read (filtering happens in application code)
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+    }
+
+    // ---- Deny all other access by default ----
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

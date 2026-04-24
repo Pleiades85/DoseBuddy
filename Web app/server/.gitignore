@@ -1,0 +1,17 @@
+node_modules/
+
+# Environment variables (NEVER commit)
+.env
+.env.*
+
+# Firebase Service Account Keys (NEVER commit)
+*firebase-adminsdk*.json
+*serviceAccountKey*.json
+*.json
+!package.json
+!package-lock.json
+
+# Debug/test files
+debug_*.js
+test_*.js
+test_output.txt

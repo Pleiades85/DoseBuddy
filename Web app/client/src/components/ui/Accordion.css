@@ -1,0 +1,71 @@
+/* =========================
+   Accordion Component Styles 
+   ========================= */
+
+.db-accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.db-accordion--open {
+  border-color: var(--slate-300);
+}
+
+.db-accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+.db-accordion__trigger:hover {
+  background: var(--slate-50);
+}
+
+.db-accordion__trigger-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.db-accordion__icon {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+}
+
+.db-accordion__title {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.db-accordion__badge {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+}
+
+.db-accordion__chevron {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.db-accordion__content {
+  padding: 0 var(--space-6) var(--space-6);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-5);
+}

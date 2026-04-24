@@ -1,0 +1,68 @@
+/* ====================
+   Card Component Styles 
+   ==================== */
+
+.db-card {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+/* --- Padding Variants --- */
+.db-card--pad-none { padding: 0; }
+.db-card--pad-sm { padding: var(--space-4); }
+.db-card--pad-md { padding: var(--space-6); }
+.db-card--pad-lg { padding: var(--space-8); }
+
+/* --- Visual Variants --- */
+.db-card--default { }
+
+.db-card--elevated {
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.db-card--outlined {
+  box-shadow: none;
+  border: 1px solid var(--border);
+}
+
+.db-card--flat {
+  box-shadow: none;
+  border: none;
+  background: var(--slate-50);
+}
+
+/* --- Interactive States --- */
+.db-card--hoverable:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--slate-300);
+}
+
+.db-card--clickable {
+  cursor: pointer;
+}
+
+.db-card--clickable:active {
+  transform: translateY(0);
+}
+
+/* --- Sub Components --- */
+.db-card__header {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+}
+
+.db-card__body {
+  flex: 1;
+}
+
+.db-card__footer {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  margin-top: var(--space-4);
+}

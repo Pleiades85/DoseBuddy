@@ -1,0 +1,123 @@
+/* ========================
+   Button Component Styles  
+   ======================== */
+
+.db-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  line-height: 1.4;
+  position: relative;
+  overflow: hidden;
+}
+
+.db-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.db-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* --- Sizes --- */
+.db-btn--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm);
+}
+
+.db-btn--md {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm);
+}
+
+.db-btn--lg {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-base);
+}
+
+/* --- Variants --- */
+.db-btn--primary {
+  background: var(--primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-xs);
+}
+.db-btn--primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+.db-btn--primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.db-btn--secondary {
+  background: var(--slate-100);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.db-btn--secondary:hover:not(:disabled) {
+  background: var(--slate-200);
+}
+
+.db-btn--danger {
+  background: var(--danger);
+  color: var(--text-inverse);
+}
+.db-btn--danger:hover:not(:disabled) {
+  background: var(--danger-dark);
+  transform: translateY(-1px);
+}
+
+.db-btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+.db-btn--ghost:hover:not(:disabled) {
+  background: var(--slate-100);
+}
+
+.db-btn--outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.db-btn--outline:hover:not(:disabled) {
+  background: var(--primary-50);
+}
+
+/* --- Modifiers --- */
+.db-btn--full {
+  width: 100%;
+}
+
+.db-btn--loading {
+  pointer-events: none;
+}
+
+/* --- Icon & Spinner --- */
+.db-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.db-btn__spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+.db-btn__label {
+  display: inline-flex;
+  align-items: center;
+}
